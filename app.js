@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 //
-// Parameters
-//
 // see ./config/default.json for default configuration
 // set NODE_ENV to environmnt to use
 //
