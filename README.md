@@ -4,7 +4,7 @@ Scalable data processing service framework with NodeJS. It allows the easy set-u
 
 ## Intro
 
-This is not attempt to replicate great event processing frameworks, like [Apache Storm](http://storm.apache.org/), but an excercise to make use of several core concepts in event or data processing:
+This is not an attempt to replicate great event processing frameworks, like [Apache Storm](http://storm.apache.org/), but an excercise to make use of several core concepts in event or data processing:
 
 * Use queues to store events when services are down or being maintained
 * Use queues and workers for scaling and load-balancing
@@ -14,7 +14,7 @@ This is not attempt to replicate great event processing frameworks, like [Apache
 
 This project has been kindly allowed to be created from work for [Gominga](http://www.gominga.com/en/index.html), a company that aims to maximise online brand awareness and customer service, and is distributed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Planned features
+### Roadmap
 
 * Optional delayed retry on service error
 * Optional store and manual replay on service error
@@ -113,10 +113,10 @@ Observe the log outputs. See how messages are passed between the two workers and
 
 ## Generic worker
 
-A generic worker (genericWorker.js) needs a command-line parameter, that points to a key in the workers config section. This defines the queue to attach to, services to call and more. Generic workers handle these things:
+A generic worker (genericWorker.js) expects a command-line parameter, that points to a key in the workers config section. This defines the queue to attach to, services to call and more. Generic workers handle the following:
 
 1. connect to a queue
-2. consume a message
+2. consume messages
 3. call associated services
 4. update job state in mongodb collection depending on outcome
 5. optionally send message two another queue for further processing
@@ -154,7 +154,7 @@ Finally, the worker needs to be configured:
 
 ### Service chaining
 
-When more than one service is defined, the results from one service call is passed onto the next one. The result is stored in the __last_ key.
+When more than one service is defined, the results from one service call is passed onto the next one. The result is stored in the _last_ key.
 
 ### Starting a worker
 ```
