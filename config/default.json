@@ -1,0 +1,42 @@
+{
+  "mongodb": {
+    "dps": "mongodb://127.0.0.1:27017/dps",
+    "agenda": "mongodb://127.0.0.1:27017/agenda",
+    "tmpcol": "tmp",
+    "jobstatecol": "job_state"
+  },
+  "amqp": "amqp://localhost",
+  "log": {
+    "level": "debug",
+    "console": true,
+    "file": false,
+    "filepath": "agenda.log"
+  },
+  "port": 3001,
+  "auth": null,
+  "scheduler": {
+    "active": true,
+    "jobs": [
+      {"name": "externalTestJob",   "file": "testJob.js",       "schedule": "90 minutes",   "active": true},
+      {"name": "testQueueJob",      "file": "testQueueJob.js",  "schedule": "120 minutes",  "active": true}
+    ]
+  },
+  "services": {
+    "integration_test_service1": {"module": "IntegrationTestService", "func": "test1"},
+    "integration_test_service2": {"module": "IntegrationTestService", "func": "test2"},
+    "integration_test_service2_1": {"module": "IntegrationTestService", "func": "test2_1"}
+  },
+  "workers": {
+    "test_worker1": {
+      "queue": "stage1_test",
+      "follow_queue": "stage2_test",
+      "job_state": 1,
+      "services": ["integration_test_service1"]
+    },
+    "test_worker2": {
+      "queue": "stage2_test",
+      "job_state": 2,
+      "services": ["integration_test_service2", "integration_test_service2_1"]
+    }
+  }
+}

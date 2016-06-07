@@ -1,0 +1,43 @@
+{
+  "name": "node-dps",
+  "version": "1.0.0",
+  "description": "scalable data processing framework with NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "mocha ./test",
+    "test_auth": "mocha ./test/auth"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gominga2@bitbucket.org/gominga/data_processing.git"
+  },
+  "author": "Arndt Jenssen",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/gominga/data_processing#readme",
+  "dependencies": {
+    "agenda": "git+https://github.com/arndtjenssen/agenda.git",
+    "agendash": "^0.2.0",
+    "amqplib": "^0.4.1",
+    "async": "^2.0.0-rc.5",
+    "basic-auth": "^1.0.4",
+    "body-parser": "^1.15.0",
+    "config": "^1.20.1",
+    "express": "^4.13.4",
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0",
+    "moment": "^2.13.0",
+    "mongodb": "^2.1.11",
+    "request": "^2.70.0",
+    "tmp": "0.0.28",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "sinon": "^1.17.4"
+  },
+  "engines": {
+    "node": ">=4.2.4"
+  }
+}
